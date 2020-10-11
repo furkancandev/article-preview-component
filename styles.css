@@ -28,12 +28,16 @@ main {
   background-color: white;
   border-radius: 8px;
   margin: auto;
+  -webkit-box-shadow: 0px 10px 39px 0px rgba(0, 0, 0, 0.22);
+  -moz-box-shadow: 0px 10px 39px 0px rgba(0, 0, 0, 0.22);
+  box-shadow: 0px 10px 39px 0px rgba(0, 0, 0, 0.22);
 }
 
 .content {
   display: flex;
   flex-direction: column;
   padding: 25px;
+  position: relative;
 }
 
 .drawers {
@@ -51,17 +55,24 @@ main {
   margin-bottom: 15px;
 }
 
+.paragraph {
+  margin-bottom: 35px;
+}
+
 .paragraph p {
   text-align: left;
   font-size: 14px;
   color: #6d7f97;
-  margin-bottom: 35px;
 }
 
 .user-container {
   display: flex;
   flex-direction: row;
   align-items: center;
+}
+
+.user-container.hidden {
+  display: none;
 }
 
 .avatar {
@@ -92,6 +103,53 @@ main {
   background-color: #ecf2f8;
   border-radius: 50%;
   padding: 7px;
+  border: 0;
+}
+
+.share:focus {
+  outline: 0;
+}
+
+.tooltip-container-m {
+  padding-top: 25px;
+}
+
+.tooltip {
+  background-color: #48556a;
+  display: flex;
+  align-items: center;
+  position: absolute;
+  max-width: 100%;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  padding: 20px 30px;
+}
+
+.tooltip .text {
+  color: #9eafc2;
+  letter-spacing: 5px;
+}
+
+.tooltip .icons {
+  margin: 0 auto;
+}
+
+.tooltip .icons img:nth-child(2) {
+  margin: 0 15px;
+}
+
+.share-tooltip {
+  margin-left: auto;
+  background-color: #6d7f97;
+  border-radius: 50%;
+  padding: 7px;
+}
+
+.tooltip-container-m.hidden {
+  display: none;
 }
 
 @media (min-width: 1024px) {
@@ -102,6 +160,7 @@ main {
   .container {
     flex-direction: row;
     width: 60%;
+    height: 280px;
   }
 
   .drawers {
@@ -111,10 +170,59 @@ main {
   }
 
   .content {
-    padding: 40px 40px 25px 40px;
+    padding: 25px;
   }
 
   .title {
     font-size: 22px;
+  }
+
+  .paragraph {
+    margin-bottom: 20px;
+  }
+
+  .user-container {
+    position: relative;
+  }
+
+  .tooltip-d {
+    background-color: #48556a;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    border-radius: 8px;
+    width: 175px;
+    bottom: 65px;
+    left: 325px;
+    padding: 20px 30px;
+  }
+
+  .tooltip-d.hidden {
+    display: none;
+  }
+
+  .tooltip-d .text {
+    color: #9eafc2;
+    letter-spacing: 5px;
+    font-size: 12px;
+  }
+
+  .tooltip-d .icons {
+    margin-left: auto;
+  }
+
+  .tooltip-d .icons img:nth-child(2) {
+    margin: 0 15px;
+  }
+
+  .triangle {
+    position: absolute;
+    bottom: -15px;
+    left: 100px;
+    width: 0;
+    height: 0;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-top: 20px solid #48556a;
   }
 }
